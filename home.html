@@ -1,8 +1,104 @@
 <!DOCTYPE html>
-  <body>
-    <h1>Ákos Godó's Home Page</h1>
-    <p>Welcome to my page!</p>
-    <p>I am a computer science PhD and machine learning engineer currently working at Osaka University, Japan.</p>
-    <p>Check out my projects/publications on from the menu on the left or get in touch with via the links.</p>
-  </body>
+<html>
+<head>
+  <!-- Head content... -->
+  <style>
+    /* Add your custom styles here */
+
+    .container {
+      margin: 20px;
+    }
+
+    .gallery-container {
+      width: 80%;
+      overflow: hidden;
+    }
+
+    .gallery {
+      display: flex;
+      animation: scrollImages 20s infinite linear; /* Adjust timing as needed */
+    }
+
+    .gallery:hover {
+      animation-play-state: paused;
+    }
+
+    .gallery img {
+      width: 400px;
+      height: auto;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 80%;
+      height: 80%;
+      background-color: rgba(0, 0, 0, 0.7);
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+    }
+
+    @keyframes scrollImages {
+      0%, 100% {
+        transform: translateX(0);
+      }
+      50% {
+        transform: translateX(-100%);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Ákos Godó's Home Page</h1>
+  <p>Welcome to my page!</p>
+  <p>I am a computer science PhD and machine learning engineer currently working at Osaka University, Japan.</p>
+  <p>Check out my projects/publications on from the menu on the left or get in touch with via the links.</p>
+
+  <div class="container">
+    <div class="gallery-container">
+      <div class="gallery">
+        <img src="images/tanpaku.png" alt="Image 2" onclick="openModal('images/tanpaku.png')">
+        <img src="images/fillrate.png" alt="Image 3" onclick="openModal('images/fillrate.png')">
+        <img src="images/phd.png" alt="Image 1" onclick="openModal('images/bsc.png')"> 
+        <img src="images/pcsuperres.png" alt="Image 2" onclick="openModal('images/tanpaku.png')">
+        <img src="images/msc.png" alt="Image 4" onclick="openModal('images/msc.png')">
+        <!-- Add more images as needed -->
+      </div>
+    </div>
+
+    <div class="modal" id="modal">
+      <div class="modal-content">
+        <span onclick="closeModal()" class="close-btn" style="font-size: 64px;font-weight: bold;color: aqua;text-align-last: right;">&times; Close</span>
+        <br>
+        <img src="" alt="Modal Image" id="modalImage">
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts... -->
+  <script>
+    function openModal(imageSrc) {
+      const modal = document.getElementById('modal');
+      const modalImage = document.getElementById('modalImage');
+
+      modalImage.src = imageSrc;
+      modal.style.display = 'flex';
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('modal');
+      modal.style.display = 'none';
+    }
+  </script>
+</body>
 </html>
