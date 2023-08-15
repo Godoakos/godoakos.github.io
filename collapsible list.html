@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>  
+    <head>
+        <!-- Head content... -->
+        <style>
+          /* Add your custom styles here */
+      
+        .container {
+            margin: 20px;
+          }
+      
+        .collapsible {
+            background-color: #f1f1f1;
+            color: #333;
+            cursor: pointer;
+            padding: 10px;
+            border: none;
+            text-align: left;
+            outline: none;
+            width: 100%;
+            font-weight: bold;
+          }
+
+        .content {
+        padding: 0 18px;
+        background-color: white;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+        }
+        </style>
+      </head>
+<!-- Make a list of my projects -->
+    <body>
+        <h1>Projects</h1>
+        <h2>Current Projects</h2>
+        <div class="container">
+        <button class="collapsible" onclick="toggleContent('section1')">Section 1</button>
+        <div class="content" id="section1">
+            <p>This is the content of Section 1. It will be collapsed and hidden by default. Click the button above to expand and see this text.</p>
+        </div>
+    
+        <button class="collapsible" onclick="toggleContent('section2')">Section 2</button>
+        <div class="content" id="section2">
+            <p>This is the content of Section 2. It will be collapsed and hidden by default. Click the button above to expand and see this text.</p>
+        </div>
+
+        <h2>Past Projects</h2>
+        <button class="collapsible" onclick="toggleContent('section3')">Section 3</button>
+        <div class="content" id="section3">
+            <p>This is the content of Section 3. It will be collapsed and hidden by default. Click the button above to expand and see this text.</p>
+        </div>
+        </div>
+    
+        <div>
+            <ul>
+                <li>Protein Structure Segmentation<a href=""></a> </li>
+                <li>Dementia prediction based on Gait/Cognitive Dual Task performance<a href=""></a> </li>
+            </ul>
+
+            
+            <ul>
+                <li>Automated container filling rate determination from depth images<a href=""></a> </li>
+                <li>Depth sensor point-cloud super-resolution<a href=""></a> </li>
+            </ul>
+        </div>
+
+        <!-- Scripts... -->
+        <script>
+            var coll = document.getElementsByClassName("collapsible");
+            var i;
+            
+            for (i = 0; i < coll.length; i++) {
+              coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.maxHeight){
+                  content.style.maxHeight = null;
+                } else {
+                  content.style.maxHeight = content.scrollHeight + "px";
+                }
+              });
+            }
+        </script>
+
+
+    </body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>  
+    <head>
+        <!-- Head content... -->
+        <style>
+          /* Add your custom styles here */
+      
+        .container {
+            margin: 20px;
+          }
+      
+        .collapsible {
+            background-color: #f1f1f1;
+            color: #333;
+            cursor: pointer;
+            padding: 10px;
+            border: none;
+            text-align: left;
+            outline: none;
+            width: 100%;
+            font-weight: bold;
+          }
+
+        .content {
+        padding: 0 18px;
+        background-color: white;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+        }
+        </style>
+      </head>
+<!-- Make a list of my projects -->
+    <body>
+        <h1>Projects</h1>
+        
+        <div class="container">
+        <h2>Current Projects</h2>
+        <button class="collapsible" onclick="toggleContent('section1')">Protein Structure Segmentation</button>
+        <div class="content" id="section1">
+          <p><b>The goal:</b></p>
+          <p>Apply novel machine learning techniques to develop protein structure determination methods which can handle both X-ray Diffraction and Cryo-EM samples at challenging low resolutions.</p>
+
+          <img src="images/tanpaku.png" alt="Point Cloud Super-Resolution" width="450" height="300">
+          <!-- List used skills -->
+          <p><b>Skills Used</b></p>
+          <ul>
+            <li>Protein Structure Determination (Phenix, CCP4, Coot, etc.)</li>
+            <li>Volumetric Data Segmentation</li>
+            <li>Deep 3D Convolutional Networks (PyTorch)</li>
+            <li>Panoptic Segmentation</li>
+            <li>BioPython</li>
+          </ul>
+        </div>
+    
+        <button class="collapsible" onclick="toggleContent('section2')">Dementia prediction based on Gait/Cognitive Dual Task performance</button>
+        <div class="content" id="section2">
+          <p><b>The goal:</b></p>
+          <p>Early stage detection of cognitive decline using a combined quiz/walking game dual task system.</p>
+
+          <img src="images/dualtask.png" alt="Point Cloud Super-Resolution" width="800" height="300">
+          <!-- List used skills -->
+          <p><b>Skills Used</b></p>
+          <ul>
+            <li>Python</li>
+            <li>Graph Convolutional Networks (PyTorch)</li>
+            <li>Human Gait Analysis</li>
+            <li>Action Recognition</li>
+            <li>Multi-modal fusion</li>
+          </ul>
+        </div>
+
+        <h2>Past Projects</h2>
+        <button class="collapsible" onclick="toggleContent('section3')">Automated container filling rate determination from depth images</button>
+        <div class="content" id="section3">
+          <p><b>The goal:</b></p>
+          <p>Develop a GUI application and design an algorithm to measure the filling rate of industrial containers in real time using multiple sensors to create a full 3D pointcloud environment.</p>
+          <!-- Image -->
+          <img src="images/fillrate.png" alt="Point Cloud Super-Resolution" width="800" height="300">
+          <!-- List used skills -->
+          <p><b>Skills Used</b></p>
+          <ul>
+            <li>Multi-Sensor Imaging</li>
+            <li>Python</li>
+            <li>Point Cloud Registration (OpenCV/Open3D)</li>
+            <li>GUI Design (PyQT)</li>
+          </ul>
+        </div>
+
+        <button class="collapsible" onclick="toggleContent('section4')">Depth sensor point-cloud super-resolution</button>
+        <div class="content" id="section4">
+            <p><b>The goal:</b></p>
+            <p>Upscale and adjust lower quality point-cloud measurements from low-cost sensors to match the quality of a point-cloud capture from a Kinect in real time.</p>
+            <!-- Image -->
+            <img src="images/pcsuperres.png" alt="Point Cloud Super-Resolution" width="800" height="300">
+            <!-- List used skills -->
+            <p><b>Skills Used</b></p>
+            <ul>
+              <li>Python</li>
+              <li>C++</li>
+              <li>OpenCV</li>
+              <li>Deep Neural Networks (PyTorch)</li>
+              <li>Open3D</li>
+              <li>Point Cloud Super-Resolution</li>
+            </ul>
+        </div>
+
+        <div></div>
+        </div>
+
+        <!-- Scripts... -->
+        <script>
+            var coll = document.getElementsByClassName("collapsible");
+            var i;
+            
+            for (i = 0; i < coll.length; i++) {
+              coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.maxHeight){
+                  content.style.maxHeight = null;
+                } else {
+                  content.style.maxHeight = content.scrollHeight + "px";
+                }
+              });
+            }
+        </script>
+
+
+    </body>
+</html>

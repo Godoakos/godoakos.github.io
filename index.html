@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Material Design Example with Persistent Sidebar</title>
+  <title>Ákos Godó's Home Page</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.5.0/material.min.css">
   <style>
     /* Add your custom styles here */
 
@@ -49,24 +48,32 @@
 <body>
   <div class="container">
     <div class="sidebar" id="sidebar">
-      <h3>Sidebar</h3>
+      <h3>Ákos Godó's Home Page</h3>
       <ul>
-        <li class="sidebar-item" onclick="openPage('item1')">Item 1</li>
-        <li class="sidebar-item" onclick="openPage('item2')">Item 2</li>
-        <li class="sidebar-item" onclick="openPage('item3')">Item 3</li>
+        <li class="sidebar-item" onclick="openPage('home.html')">Home</li>
+        <li class="sidebar-item" onclick="openPage('projects.html')">Projects</li>
+        <li class="sidebar-item" onclick="openPage('pubs.html')">Publications</li>
+        <li class="sidebar-item" onclick="openPage('cv.html')">Background</li>
       </ul>
+      
+      <h3>Contact me:</h3>
+      <!-- GitHub Button, in new tab -->
+      <a class="social-button" href="https://github.com/godoakos" target="_blank">
+        <img src="images/github-mark-white.png" alt="GitHub" width="60" height="60">
+      </a>
+      <!-- LinkedIn Button -->
+      <a class="social-button" href="https://www.linkedin.com/in/godoakos/" target="_blank">
+        <img src="images/linkedin-icon.png" alt="LinkedIn" width="60" height="60">
+      </a>
     </div>
-
     <div class="content" id="content">
-      <h1>Welcome to Material Design Example</h1>
-      <p>This is a simple example of an index.html file that follows Material Design principles and includes a persistent sidebar.</p>
-      <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Click Me</button>
+      <!-- The iframe will be inserted here -->
     </div>
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.5.0/material.min.js"></script>
+  <!-- Scripts... -->
   <script>
-    function openPage(page) {
+    function openPage(page, defaultPage = 'home.html') {
       const sidebarItems = document.querySelectorAll('.sidebar-item');
       const contentDiv = document.getElementById('content');
 
@@ -74,24 +81,18 @@
         item.classList.remove('selected');
       });
 
-      const selectedSidebarItem = document.querySelector(`[onclick="openPage('${page}')"]`);
-      selectedSidebarItem.classList.add('selected');
-
-      // Modify the content based on the selected option
-      switch (page) {
-        case 'item1':
-          contentDiv.innerHTML = '<h1>Item 1 Content</h1><p>This is the content for Item 1.</p>';
-          break;
-        case 'item2':
-          contentDiv.innerHTML = '<h1>Item 2 Content</h1><p>This is the content for Item 2.</p>';
-          break;
-        case 'item3':
-          contentDiv.innerHTML = '<h1>Item 3 Content</h1><p>This is the content for Item 3.</p>';
-          break;
-        default:
-          contentDiv.innerHTML = '<h1>Welcome to Material Design Example</h1><p>This is a simple example of an index.html file that follows Material Design principles and includes a persistent sidebar.</p><button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Click Me</button>';
+      const selectedSidebarItem = document.querySelector(`[onclick="openPage('${page || defaultPage}')"]`);
+      if (selectedSidebarItem) {
+        selectedSidebarItem.classList.add('selected');
       }
+
+      contentDiv.innerHTML = `<iframe src="${page || defaultPage}" frameborder="0" width="100%" height="100%"></iframe>`;
     }
+
+    // Call openPage with the default 'home.html' after the document is fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      openPage('home.html');
+    });
   </script>
 </body>
 </html>

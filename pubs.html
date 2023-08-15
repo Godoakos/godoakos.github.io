@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>  
+
+<head>
+    <!-- Head content... -->
+    <style>
+      /* Add your custom styles here */
+  
+    .container {
+        margin: 20px;
+      }
+  
+    .collapsible {
+        background-color: #f1f1f1;
+        color: #333;
+        cursor: pointer;
+        padding: 10px;
+        border: none;
+        text-align: left;
+        outline: none;
+        width: 100%;
+        font-weight: bold;
+      }
+
+    .content {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    }
+    </style>
+  </head>
+
+<body>
+    <h1>Publications</h1>
+    
+    <div class="container">
+    <h2>Theses</h2>
+    <button class="collapsible" onclick="toggleContent('section1')">Bachelor's Thesis - GPU-based machine learning methods in medical image processing, 2016</button>
+    <div class="content" id="section1">
+      <p></p>
+      <b>Full Text:</b>
+      <p>
+        <a href="./docs/bsc.pdf" target="_blank">View PDF (in Hungarian)</a>
+      </p>
+
+      <b>Abstract (Excerpt):</b>
+      <p>
+        In this paper, I have described the method of fundus photography used for diagnosis and the potential problems
+        arising from its use. Using Python and MATLAB scripts and a freely available dataset, I have created a learning
+        and test set for a machine learning method, the steps of which I have summarized.
+      </p>
+      <p>
+        I attempted to improve the quality of the samples using an image processing method.
+        I have reviewed the operation of some methods that have achieved significant results in medical image processing,
+        such as the naive Bayesian classifier, the (k-)NN algorithm, the support vector machine (SVM) and neural networks. 
+        I have also described in detail the working principle of my chosen method, neural networks.
+      </p>
+      <p>
+        I solved a five-class classification problem using deep convolutional neural networks. 
+        I presented the theoretical and empirical background of network design.
+      </p>
+      
+      <img src="images/bsc.png" alt="BSc" width="400" height="200">
+          
+    </div>
+
+    <button class="collapsible" onclick="toggleContent('section2')">Master's Thesis - Deep Learning Methods for Computer Aided Drug Design, 2018</button>
+    <div class="content" id="section2">
+      <p></p>
+      <b>Full Text:</b>
+      <p>
+        <a href="./docs/msc.pdf" target="_blank">View PDF</a>
+      </p>
+
+      <b>Abstract (Excerpt):</b>
+      <p>
+        A highly relevant task in Computer Aided Drug Design during the research of drug
+        candidate molecules is the study of the bonding affinity between proteins and various
+        small molecules which exhibit biological or pharmacological activity.
+      </p>
+      <p>
+        This task requires a large amount of computational resources because even for a single protein a high quantity
+        of binding sites and feasible ligand molecules exist. Thus, it is customary to support the
+        high-precision simulations by less resource intensive calculations beforehand to filter out
+        less promising candidates. A possible angle of approach to this early approximation is
+        the use of machine learning methods.
+      </p>
+      <p>
+        To be able to determine if a protein-ligand binding reaction would take place the re-
+        action energy must be obtained. I presented various methods currently in use both in
+        the industry and academic research which are used to obtain these energies: the basics
+        of the Density Functional Theory (DFT) and wave function based methods while diving
+        into further detail with the Molecular Mechanics based approach
+      </p>
+
+      <img src="images/msc.png" alt="MSc" width="400" height="200">
+
+    </div>
+
+    <button class="collapsible" onclick="toggleContent('section3')">PhD Thesis - Volume segmentation of protein electron density maps with 3D convolutional neural networks, 2023</button>
+    <div class="content" id="section3">
+      <p></p>
+      <b>Full Text:</b>
+      <p>
+        <a href="https://doi.org/10.18910/91983" target="_blank">Osaka University Knowledge Archive</a>
+      </p>
+
+      <b>Abstract (Excerpt):</b>
+      <p>
+        Can state-of-the-art computer vision methods be applied for protein structure
+        determination tasks? This thesis answers the above question by defining
+        the problem of locating and classifying amino acid (AA) residues in protein
+        electron density (ED) maps as an image segmentation problem.
+      </p>
+      <p>
+        A custom data set with annotations for supervised semantic and instance
+        segmentation is created to train and evaluate network performance. It contains 
+        high-, mid- and low-resolution ED maps generated from the same ap-
+        proximately 7000 proteins, allowing the CNNs to specifically target each
+        resolution. With low-resolution data in the challenging sub-3 Å range, the
+        CNNs can be trained to be functional even where state-of-the-art toolkits fail.
+      </p>
+      <p>
+        The proposed methods assign AA labels directly to ED maps by crop-stitching fixed size
+        windows, only observing the densities without relying on the AA sequence.
+        The first proposed CNN architecture, 3D FC-DenseNet matches the performance 
+        of state-of-the-art toolkits at high resolutions, and beats them at
+        medium and especially at low resolutions, which are a failure case for toolkits. 
+        Its upgrade, MT-StackNet is capable of simultaneous semantic and instance segmentation
+        of ED maps and, due its improved performance, it outperforms model building toolkits
+        even at high resolutions. It can locate and classify all AA instances with a single
+        forward pass using a novel offset vector regression technique.
+
+        Both methods process ED maps with better performance and much faster
+        than model building toolkits, showing that computer vision methods and
+        CNNs are applicable for protein structure determination tasks.
+      </p>
+
+      <img src="images/phd.png" alt="PhD" width="700" height="400">
+
+    </div>
+
+    <h2>Papers</h2>
+    
+    <button class="collapsible" onclick="toggleContent('section3')">Single Shot Residue Localization and Classification in Crystallographic Electron Density Maps, 2022</button>
+    <div class="content" id="section4">
+      <!-- link to paper -->
+      <p></p>
+      <b>Full Text:</b>
+      <p>
+        <a href="https://ieeexplore.ieee.org/document/9915586" target="_blank">IEEE Xplore</a>
+      </p>
+
+      <b>Abstract:</b>
+      <p>
+        Despite constant advances in X-ray crystallography, the resolution of the acquired electron density maps 
+        still poses a serious limit on protein protein structural model building efforts. Furthermore, the currently 
+        available toolkits require hours or even days for model building. Methods capable of processing a large volume
+        of samples in a short time which can also handle low resolution samples are needed. 
+      </p>
+      
+      <p>
+        This work proposes a neural network-based approach to locate and classify residues in crystallographic electron
+        density maps automatically in a single forward pass without relying on the protein’s residue sequence. 
+        Our proposed method shows an average 23.53% increase in accuracy over our previous approach and also compares
+        favorably to currently available toolkits. 
+      </p>
+
+      <p>
+        It can process protein samples in seconds on consumer-grade hardware saving significant time and resources.
+      </p>
+
+      <img src="images/paper2.png" alt="Tanpaku 2" width="700" height="300">
+
+    </div>
+
+
+    <button class="collapsible" onclick="toggleContent('section3')">Residue Assignment in Crystallographic Protein Electron Density Maps With 3D Convolutional Networks, 2022</button>
+    <div class="content" id="section5">
+      <p></p>
+      <b>Full Text:</b>
+      <p>
+        <a href="https://ieeexplore.ieee.org/document/9726158" target="_blank">IEEE Xplore</a>
+      </p>
+
+      <b>Abstract:</b>
+      <p>
+        This work proposes a neural network architecture, called 3D FC-DenseNet, 
+        for assigning amino acid labels to X-ray crystallographic electron density maps 
+        without relying on the amino acid sequence of proteins.
+      </p>
+      
+      <p>
+        The 3DFC-DenseNet is able to treat the task as a 3D semantic segmentation problem, 
+        assigning amino acid labels directly to protein electron density maps. 
+
+        By creating dedicated data sets and models for high, medium and low resolution samples, 
+        our method matches the performance of crystallographic toolkits for primary structure assignment at high resolutions.
+      </p>
+
+      <p>
+        Furthermore, it outperforms them at medium resolution and functions at low resolutions where current toolkits and human ability fails.
+      </p>
+
+      <img src="images/paper1.png" alt="Tanpaku 1" width="500" height="200">
+
+    </div>
+
+    <h2>Posters</h2>
+    
+    <button class="collapsible" onclick="toggleContent('section3')">Imaging method-agnostic neural network-based map structure segmentation, 2023</button>
+    <div class="content" id="section4">
+      <!-- link to paper -->
+      <p></p>
+      <b>Full Text: Soon™</b>
+      <p></p>
+
+      <b>Abstract:</b>
+      <p>
+        We present a 3D convolutional neural network architecture for locating and classifying residues in volumetric electron density
+        (ED) maps in a single forward pass without relying on the protein’s residue sequence. Although originally trained on ED maps
+        acquired via x-ray diffraction (XRD), due in part to the problem setting’s generality, we show that our method is also
+        applicable to potential maps acquired via cryo-electron microscopy (Cryo-EM). It functions even with low (sub-3.5Å) resolution
+        samples and can process entire proteins in seconds to minutes on readily available consumer-grade hardware.
+      </p>
+      
+      <p>
+        Our custom data set consists of generated ED as well as potential maps of approximately 7000 proteins closely following the
+        features of real-life samples at high, medium, and low resolutions. By having maps of the same proteins across multiple
+        resolutions and imaging methods, direct comparison of performance is possible. Furthermore, it contains over 1000 real-life,
+        experimentally acquired maps in the 1.5 to 4Å resolution range to measure actual performance. This, to our knowledge, makes it
+        the largest and most comprehensive dataset for structure segmentation in maps acquired via XRD or Cryo-EM.
+      </p>
+    </div>
+
+    </div>
+
+    
+
+    <!-- Scripts... -->
+    <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+        
+        for (i = 0; i < coll.length; i++) {
+          coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.maxHeight){
+              content.style.maxHeight = null;
+            } else {
+              content.style.maxHeight = content.scrollHeight + "px";
+            }
+          });
+        }
+    </script>
+
+
+</body>
+
+
+
+
+</html>
