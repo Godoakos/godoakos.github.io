@@ -10,7 +10,7 @@
     }
 
     .gallery-container {
-      width: 80%;
+      width: 100%;
       overflow: hidden;
     }
 
@@ -35,16 +35,16 @@
       position: fixed;
       top: 0;
       left: 0;
-      width: 80%;
-      height: 80%;
+      width: 100%;
+      height: 100%;
       background-color: rgba(0, 0, 0, 0.7);
       align-items: center;
       justify-content: center;
     }
 
     .modal-content {
-      max-width: 90%;
-      max-height: 90%;
+      max-width: 100%;
+      max-height: 100%;
     }
 
     @keyframes scrollImages {
@@ -59,8 +59,7 @@
 </head>
 <body>
 
-  <h1>Ákos Godó's Home Page</h1>
-  <p>Welcome to my page!</p>
+  <h1>Welcome to my page!</h1>
   <p>I am a computer science PhD and machine learning engineer currently working at Osaka University, Japan.</p>
   <p>Check out my projects/publications on from the menu on the left or get in touch with via the links.</p>
 
@@ -69,8 +68,8 @@
       <div class="gallery">
         <img src="images/tanpaku.png" alt="Image 2" onclick="openModal('images/tanpaku.png')">
         <img src="images/fillrate.png" alt="Image 3" onclick="openModal('images/fillrate.png')">
-        <img src="images/phd.png" alt="Image 1" onclick="openModal('images/bsc.png')"> 
-        <img src="images/pcsuperres.png" alt="Image 2" onclick="openModal('images/tanpaku.png')">
+        <img src="images/phd.png" alt="Image 1" onclick="openModal('images/phd.png')"> 
+        <img src="images/pcsuperres.png" alt="Image 2" onclick="openModal('images/pcsuperres.png')">
         <img src="images/msc.png" alt="Image 4" onclick="openModal('images/msc.png')">
         <!-- Add more images as needed -->
       </div>
@@ -78,7 +77,7 @@
 
     <div class="modal" id="modal">
       <div class="modal-content">
-        <span onclick="closeModal()" class="close-btn" style="font-size: 64px;font-weight: bold;color: aqua;text-align-last: right;">&times; Close</span>
+        <span onclick="closeModal()" class="close-btn" style="font-size: 64px;font-weight: bold;color: aqua;text-align-last: right;">&times;</span>
         <br>
         <img src="" alt="Modal Image" id="modalImage">
       </div>
