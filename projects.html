@@ -4,7 +4,20 @@
         <!-- Head content... -->
         <style>
           /* Add your custom styles here */
-      
+        
+
+          p {
+        font-size: large;
+        }
+
+        h2 {
+            font-size: larger;
+        }
+
+        h1 {
+            font-size: x-large;
+        }
+
         .container {
             margin: 20px;
           }
@@ -36,6 +49,17 @@
           margin-right: auto;
           max-width: 100%;
           height: auto;
+        }
+
+        /* Add arrow symbols for open and closed collapsibles */
+        .collapsible.active::before {
+            content: "\25B2"; /* Upward arrow character */
+            margin-right: 10px;
+        }
+
+        .collapsible::before {
+            content: "\25BC"; /* Downward arrow character */
+            margin-right: 10px;
         }
         </style>
       </head>
@@ -119,21 +143,30 @@
 
         <!-- Scripts... -->
         <script>
-            var coll = document.getElementsByClassName("collapsible");
-            var i;
-            
-            for (i = 0; i < coll.length; i++) {
+          var coll = document.getElementsByClassName("collapsible");
+          var i;
+      
+          for (i = 0; i < coll.length; i++) {
               coll[i].addEventListener("click", function() {
-                this.classList.toggle("active");
-                var content = this.nextElementSibling;
-                if (content.style.maxHeight){
-                  content.style.maxHeight = null;
-                } else {
-                  content.style.maxHeight = content.scrollHeight + "px";
-                }
+                  this.classList.toggle("active");
+                  var content = this.nextElementSibling;
+                  
+                  // Close other open collapsibles
+                  for (var j = 0; j < coll.length; j++) {
+                      if (coll[j] !== this) {
+                          coll[j].classList.remove("active");
+                          coll[j].nextElementSibling.style.maxHeight = null;
+                      }
+                  }
+      
+                  if (content.style.maxHeight) {
+                      content.style.maxHeight = null;
+                  } else {
+                      content.style.maxHeight = content.scrollHeight + "px";
+                  }
               });
-            }
-        </script>
+          }
+      </script>
 
 
     </body>

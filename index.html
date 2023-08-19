@@ -14,20 +14,24 @@
     font-family: "Poppins", sans-serif;
   }
 
+  h1 {
+    font-size: x-large;
+  }
+
+  h2 {
+    font-size: larger;
+  }
+
+  p {
+    font-size: large;
+  }
+
   .content {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
     min-height: 100vh;
   }
-
-  /* .container {
-    max-width: 1050px;
-    width: 90%;
-    height: auto;
-    flex-grow: 1;
-    margin: auto;
-  } */
 
   .container {
     display: flex;
@@ -47,7 +51,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 62px;
+    height: 100px;
   }
 
   .navbar .menu-items {
@@ -73,15 +77,15 @@
   .nav-container {
     display: block;
     position: relative;
-    height: 60px;
+    height: 80px;
   }
 
   .nav-container .checkbox {
     position: absolute;
     display: block;
-    height: 32px;
-    width: 32px;
-    top: 20px;
+    height: 60px;
+    width: 60px;
+    top: 10px;
     left: 20px;
     z-index: 5;
     opacity: 0;
@@ -90,11 +94,11 @@
 
   .nav-container .hamburger-lines {
     display: block;
-    height: 26px;
-    width: 32px;
+    height: 40px;
+    width: 40px;
     position: absolute;
     top: 17px;
-    left: 20px;
+    left: 30px;
     z-index: 2;
     display: flex;
     flex-direction: column;
@@ -104,7 +108,7 @@
   .nav-container .hamburger-lines .line {
     display: block;
     height: 4px;
-    width: 100%;
+    width: 125%;
     border-radius: 10px;
     background: #0e2431;
   }
@@ -128,11 +132,11 @@
     box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
     height: 100vh;
     width: 100%;
-    transform: translate(-150%);
+    transform: translate(-200%);
     display: flex;
     flex-direction: column;
-    margin-left: -40px;
-    padding-left: 50px;
+    margin-left: 0px;
+    padding-left: 0px;
     transition: transform 0.5s ease-in-out;
     text-align: center;
     background-color: gray;
@@ -141,15 +145,16 @@
 
   .navbar .menu-items li {
     margin-bottom: 1.2rem;
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 500;
+    cursor: pointer;
   }
 
   .logo {
     position: absolute;
-    top: 5px;
+    top: 25px;
     right: 15px;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     color: #0e2431;
   }
 
@@ -172,13 +177,14 @@
   .nav-container input[type="checkbox"]:checked ~ .logo{
     display: none;
   }
+
   </style>
 </head>
 <body>
   <nav>
     <div class="navbar">
-      <div class="container nav-container">
-          <input class="checkbox" type="checkbox" name="" id="" />
+      <div class="container nav-container" id="menu">
+          <input class="checkbox" type="checkbox" name="" id="menutoggle" />
           <div class="hamburger-lines">
             <span class="line line1"></span>
             <span class="line line2"></span>
@@ -195,15 +201,15 @@
           <h3>Contact me:</h3>
           <!-- GitHub Button, in new tab -->
           <a class="social-button" href="https://github.com/godoakos" target="_blank">
-            <img src="images/github-mark-white.png" alt="GitHub" width="60" height="60">
+            <img src="images/github-mark-white.png" alt="GitHub" width="80" height="80">
           </a>
           <!-- LinkedIn Button -->
           <a class="social-button" href="https://www.linkedin.com/in/godoakos/" target="_blank">
-            <img src="images/linkedin-icon.png" alt="LinkedIn" width="60" height="60">
+            <img src="images/linkedin-icon.png" alt="LinkedIn" width="80" height="80">
           </a>
           <!-- LinkedIn Button -->
           <a class="social-button" href="https://orcid.org/0000-0001-6227-4611" target="_blank">
-            <img src="images/orcid.png" alt="ORCiD" width="60" height="60">
+            <img src="images/orcid.png" alt="ORCiD" width="80" height="80">
           </a>
         </div>
         
@@ -223,23 +229,30 @@
     function openPage(page, defaultPage = 'home.html') {
       const sidebarItems = document.querySelectorAll('.sidebar-item');
       const contentDiv = document.getElementById('content');
+      const menuToggle = document.getElementById('menutoggle');
 
       sidebarItems.forEach(item => {
         item.classList.remove('selected');
       });
 
+      
       const selectedSidebarItem = document.querySelector(`[onclick="openPage('${page || defaultPage}')"]`);
       if (selectedSidebarItem) {
         selectedSidebarItem.classList.add('selected');
       }
 
       contentDiv.innerHTML = `<iframe src="${page || defaultPage}" frameborder="0" width="100%" height="100%"></iframe>`;
+      menuToggle.checked = false;
+      contentDiv.style.marginLeft = '0';
     }
+
+    
 
     // Call openPage with the default 'home.html' after the document is fully loaded
     document.addEventListener('DOMContentLoaded', function() {
       openPage('home.html');
     });
+
   </script>
 
 </body>
